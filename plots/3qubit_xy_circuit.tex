@@ -1,0 +1,21 @@
+
+% Requires: \usepackage{quantikz}
+% 3-Qubit XY Hamiltonian CNOT Decomposition
+
+\begin{equation}
+\text{3-Qubit XY Circuit: } H = -[(X_0 X_1 + Y_0 Y_1) + (X_1 X_2 + Y_1 Y_2)]
+\end{equation}
+
+\begin{quantikz}
+q_0: & \gate{RY(\pi/2)} & \ctrl{1} & \qw & \ctrl{1} & \gate{RY(-\pi/2)} & \qw & \qw & \qw & \qw & \qw & \qw \\
+q_1: & \gate{RY(\pi/2)} & \targ{} & \gate{RZ(2\theta)} & \targ{} & \gate{RY(-\pi/2)} & \gate{RY(\pi/2)} & \ctrl{1} & \qw & \ctrl{1} & \gate{RY(-\pi/2)} \\
+q_2: & \qw & \qw & \qw & \qw & \qw & \gate{RY(\pi/2)} & \targ{} & \gate{RZ(2\theta)} & \targ{} & \gate{RY(-\pi/2)}
+\end{quantikz}
+
+% Alternative compact version:
+\begin{quantikz}[column sep=0.8cm]
+& \multicolumn{5}{c}{\text{XY Interaction (0,1)}} & & \multicolumn{5}{c}{\text{XY Interaction (1,2)}} \\
+q_0: & \gate{RY(\pi/2)} & \ctrl{1} & \qw & \ctrl{1} & \gate{RY(-\pi/2)} & \qw & \qw & \qw & \qw & \qw \\
+q_1: & \gate{RY(\pi/2)} & \targ{} & \gate{RZ(2\theta)} & \targ{} & \gate{RY(-\pi/2)} & \gate{RY(\pi/2)} & \ctrl{1} & \qw & \ctrl{1} & \gate{RY(-\pi/2)} \\
+q_2: & \qw & \qw & \qw & \qw & \qw & \gate{RY(\pi/2)} & \targ{} & \gate{RZ(2\theta)} & \targ{} & \gate{RY(-\pi/2)}
+\end{quantikz}
